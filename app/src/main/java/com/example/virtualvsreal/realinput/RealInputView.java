@@ -48,10 +48,12 @@ public class RealInputView extends FrameLayout {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
                         v.setBackgroundColor(0x3F00FF00);
+                        v.setPressed(true);
                         break;
                     case MotionEvent.ACTION_UP:
                     case MotionEvent.ACTION_CANCEL:
                         v.setBackgroundColor(0x3FFF0000);
+                        v.setPressed(false);
                         break;
                     default:
                         break;
@@ -69,6 +71,9 @@ public class RealInputView extends FrameLayout {
 //            keyGrid.setBackgroundTintList(info.mRealBackground);
             keyGrid.setBackgroundColor(0x3FFF0000);
             keyGrid.setOnTouchListener(touchListener);
+            Rect newRc = new Rect(info.mBounds);
+            newRc.offset(-info.mBounds.left, -info.mBounds.top);
+            keyGrid.addForegroundDrawable(new Pair<>(newRc, info.mForeground));
             addView(keyGrid);
         }
         setBackgroundColor(0x3f0000ff);
