@@ -1,0 +1,3 @@
+include ':virtual'
+include ':app'
+rootProject.name = "VirtualVsReal"
