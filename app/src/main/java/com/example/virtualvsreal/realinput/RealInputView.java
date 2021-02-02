@@ -1,5 +1,7 @@
 package com.example.virtualvsreal.realinput;
 
+import android.animation.Animator;
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Rect;
 import android.util.AttributeSet;
@@ -76,6 +78,43 @@ public class RealInputView extends FrameLayout {
             keyGrid.addForegroundDrawable(new Pair<>(newRc, info.mForeground));
             addView(keyGrid);
         }
+
+        ValueAnimator animator = ValueAnimator.ofFloat(0, 1.0f);
+        animator.setRepeatCount(ValueAnimator.INFINITE);
+        animator.setDuration(1000);
+
+        animator.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+        });
+
+        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                float alpha = (Float) animation.getAnimatedValue();
+                for (int i = 0; i < getChildCount(); ++i) {
+                    getChildAt(i).setAlpha(alpha);
+                }
+            }
+        });
+        animator.start();
         setBackgroundColor(0x3f0000ff);
     }
 

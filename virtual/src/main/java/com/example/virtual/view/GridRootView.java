@@ -121,14 +121,14 @@ public class GridRootView extends View implements MultiTouchEventHelper.OnMultiT
     public void onDraw(Canvas canvas) {
         this.mAttachInfo.mDirty.setEmpty();
         if (BuildConfig.DEBUG) {
-            Log.i(TAG, "start drawing...");
+            //Log.i(TAG, "start drawing...");
         }
         canvas.getClipBounds(this.mClipRect);
 
         this.mDecorGrid.draw(canvas);
 
         if (BuildConfig.DEBUG) {
-            Log.i(TAG, "end drawing...");
+            //Log.i(TAG, "end drawing...");
         }
     }
 
@@ -156,7 +156,7 @@ public class GridRootView extends View implements MultiTouchEventHelper.OnMultiT
         z = super.dispatchHoverEvent(motionEvent);
 
         if (BuildConfig.DEBUG) {
-            Log.i(TAG, "dispatchHoverEvent | action: " + motionEvent.getAction() + " x: " + motionEvent.getX() + ", y: " + motionEvent.getY() + ", result: " + z);
+            //Log.i(TAG, "dispatchHoverEvent | action: " + motionEvent.getAction() + " x: " + motionEvent.getX() + ", y: " + motionEvent.getY() + ", result: " + z);
         }
         return z;
     }
@@ -174,7 +174,7 @@ public class GridRootView extends View implements MultiTouchEventHelper.OnMultiT
     @Override
     public boolean onHoverEvent(MotionEvent motionEvent) {
         if (BuildConfig.DEBUG) {
-            Log.i(TAG, "onHoverEvent | action: " + motionEvent.getAction() + " x: " + motionEvent.getX() + ", y: " + motionEvent.getY());
+            //Log.i(TAG, "onHoverEvent | action: " + motionEvent.getAction() + " x: " + motionEvent.getX() + ", y: " + motionEvent.getY());
         }
         if (motionEvent.getAction() == 10 && (Math.abs(((float) getWidth()) - motionEvent.getX()) < 10.0f || motionEvent.getX() < 10.0f || Math.abs(((float) getHeight()) - motionEvent.getY()) < 10.0f)) {
             motionEvent.setAction(3);
@@ -190,7 +190,7 @@ public class GridRootView extends View implements MultiTouchEventHelper.OnMultiT
     public boolean onTouchEvent(MotionEvent motionEvent) {
         boolean z;
         if (BuildConfig.DEBUG) {
-            Log.i(TAG, "start onTouchEvent...");
+            //Log.i(TAG, "start onTouchEvent...");
         }
         long currentTimeMillis = System.currentTimeMillis();
         if (this.mHelper != null) {
@@ -199,10 +199,10 @@ public class GridRootView extends View implements MultiTouchEventHelper.OnMultiT
             z = this.mDecorGrid.touchEvent(motionEvent);
         }
         if (BuildConfig.DEBUG) {
-            Log.i(TAG, "end onTouchEvent...");
+            //Log.i(TAG, "end onTouchEvent...");
         }
         if (BuildConfig.DEBUG) {
-            Log.i(TAG, "onTouchEvent:" + (System.currentTimeMillis() - currentTimeMillis));
+            //Log.i(TAG, "onTouchEvent:" + (System.currentTimeMillis() - currentTimeMillis));
         }
         return z;
     }
@@ -211,7 +211,7 @@ public class GridRootView extends View implements MultiTouchEventHelper.OnMultiT
     // com.iflytek.inputmethod.common.view.widget.MultiTouchEventHelper.OnMultiTouchEventListener
     public boolean onExportTouchEvent(MotionEvent motionEvent) {
         if (BuildConfig.DEBUG) {
-            Log.i(TAG, "onExportTouchEvent, action = " + motionEvent.getAction());
+            //Log.i(TAG, "onExportTouchEvent, action = " + motionEvent.getAction());
         }
         return this.mDecorGrid.touchEvent(motionEvent);
     }
@@ -225,36 +225,36 @@ public class GridRootView extends View implements MultiTouchEventHelper.OnMultiT
     /* access modifiers changed from: protected */
     public void onAttachedToWindow() {
         if (BuildConfig.DEBUG) {
-            Log.i(TAG, "start onTouchEvent...");
+            //Log.i(TAG, "start onTouchEvent...");
         }
         super.onAttachedToWindow();
         this.mDecorGrid.dispatchAttachedToWindow(this.mAttachInfo);
         if (BuildConfig.DEBUG) {
-            Log.i(TAG, "end onTouchEvent...");
+            //Log.i(TAG, "end onTouchEvent...");
         }
     }
 
     /* access modifiers changed from: protected */
     public void onDetachedFromWindow() {
         if (BuildConfig.DEBUG) {
-            Log.i(TAG, "start onDetachedFromWindow...");
+            //Log.i(TAG, "start onDetachedFromWindow...");
         }
         super.onDetachedFromWindow();
         this.mDecorGrid.dispatchDetachedFromWindow();
         if (BuildConfig.DEBUG) {
-            Log.i(TAG, "end onDetachedFromWindow...");
+            //Log.i(TAG, "end onDetachedFromWindow...");
         }
     }
 
     /* access modifiers changed from: protected */
     public void onWindowVisibilityChanged(int i) {
         if (BuildConfig.DEBUG) {
-            Log.i(TAG, "start onWindowVisibilityChanged...");
+            //Log.i(TAG, "start onWindowVisibilityChanged...");
         }
         super.onWindowVisibilityChanged(i);
         this.mDecorGrid.dispatchWindowVisibilityChanged(Visibility.getVisibility(i));
         if (BuildConfig.DEBUG) {
-            Log.i(TAG, "end onWindowVisibilityChanged...");
+            //Log.i(TAG, "end onWindowVisibilityChanged...");
         }
     }
 

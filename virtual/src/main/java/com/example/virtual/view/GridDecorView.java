@@ -15,7 +15,7 @@ public class GridDecorView implements GridParent {
     @Override // com.iflytek.inputmethod.common.view.widget.GridParent
     public void invalidateChild(Grid grid, Rect rect) {
         if (BuildConfig.DEBUG) {
-            Log.i("GridRootView", "invalidate : " + rect.toShortString());
+//            //Log.i("GridRootView", "invalidate : " + rect.toShortString());
         }
         if (!Grid.CLIPPING || grid.isGridLightAnimating()) {
             this.mRootView.invalidate();

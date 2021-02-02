@@ -29,7 +29,7 @@ public class MultiTouchEventHelper {
 
     public boolean onImportTouchEvent(MotionEvent motionEvent) {
         if (BuildConfig.DEBUG) {
-            Log.i(TAG, "onTouchEvent : " + motionEvent.getActionMasked());
+            //Log.i(TAG, "onTouchEvent : " + motionEvent.getActionMasked());
         }
         switch (motionEvent.getActionMasked()) {
             case MotionEvent.ACTION_DOWN:

@@ -1,5 +1,7 @@
 package com.example.virtualvsreal.virtualinput;
 
+import android.animation.Animator;
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.util.Pair;
@@ -94,5 +96,43 @@ public class VirtualInputView extends GridRootView {
             mKeyboardView.addGrid(keyGrid);
         }
         setContentGrid(mKeyboardView);
+
+        ValueAnimator animator = ValueAnimator.ofFloat(0, 1.0f);
+        animator.setRepeatCount(ValueAnimator.INFINITE);
+        animator.setDuration(1000);
+
+        animator.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+        });
+
+        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                float alpha = (Float) animation.getAnimatedValue();
+                for (int i = 0; i < mKeyboardView.getChildCount(); ++i) {
+                    mKeyboardView.getChildAt(i).getBackground().setAlpha((int) (alpha * 255));
+                    mKeyboardView.getChildAt(i).invalidate();
+                }
+            }
+        });
+        animator.start();
     }
 }
